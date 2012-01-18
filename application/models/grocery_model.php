@@ -29,8 +29,8 @@ class grocery_Model  extends CI_Model  {
     			$unique_join_name = $this->_unique_join_name($field_name);
     			$unique_field_name = $this->_unique_field_name($field_name);
     			
-				if(strstr($related_field_title,'{'))
-    				$select .= ", CONCAT('".str_replace(array('{','}'),array("',COALESCE(",", ''),'"),str_replace("'","\\'",$related_field_title))."') as $unique_field_name";
+			if(strstr($related_field_title,'{'))
+    				$select .= ", CONCAT('".str_replace(array('{','}'),array("',COALESCE($unique_join_name.",", ''),'"),str_replace("'","\\'",$related_field_title))."') as $unique_field_name";
     			else    			
     				$select .= ", $unique_join_name.$related_field_title as $unique_field_name";
     			
