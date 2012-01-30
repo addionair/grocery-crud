@@ -368,5 +368,8 @@ class grocery_Model  extends CI_Model  {
     	}
     	
     }
+    function count_records($table_name){
+    	return $this->db->count_all($table_name);
+    }
 		
 }
